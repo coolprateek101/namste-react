@@ -5,7 +5,7 @@ const Header = () => {
 			<div className="logoContainer">
 				<img
 					className="logo"
-					src= {LOGO_URL}
+					src={LOGO_URL}
 				/>
 			</div>
 			<div className="nav-items">

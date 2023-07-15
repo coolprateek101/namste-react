@@ -1,28 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/**
- * 
- * Header
- *  -Logo
- * 	-Nav Items
- * 
- * Body
- * 	-Search
- * 	-RestaurantContainer
- * 		-image
- * 		-name of restaurant, Star rating, cuisine, delivery time
- * 
- * Footer
- * 	-copyright
- * 	-links
- * 	-contacts
- * 
- */
 const resList = [
 	{
 		"type": "restaurant",
-		"data": 
+		"data":
 		{
 			"type": "F",
 			"id": "444178",
@@ -121,7 +100,8 @@ const resList = [
 			"promoted": true,
 			"avgRating": "4.5",
 			"totalRatings": 5000,
-			"new": false},
+			"new": false
+		},
 		"subtype": "basic"
 	},
 	{
@@ -1602,70 +1582,7 @@ const resList = [
 		},
 		"subtype": "basic"
 	}
-]
-const Header = () => {
-	return (
-		<div className="header">
-			<div className="logoContainer">
-				<img
-					className="logo"
-					src="https://cdn5.f-cdn.com/contestentries/1076909/19407170/596cbf037df9a_thumb900.jpg"
-				/>
-			</div>
-			<div className="nav-items">
-				<ul>
-					<li>Home</li>
-					<li>About us</li>
-					<li>Contact us</li>
-					<li>cart</li>
-				</ul>
-			</div>
-		</div>
-	)
-}
+];
 
-const RestaurantCard = (props) => {
-	const { resData } = props,
-		{ name, cloudinaryImageId, cuisines, avgRating, costForTwo, deliveryTime } = resData.data;
+export default resList;
 
-	return (
-		<div className="res-card">
-			<img
-				className="res-logo"
-				alt="res-logo"
-				src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" + cloudinaryImageId} />
-			<h3>{name}</h3>
-			<h4>{cuisines.join(", ")}</h4>
-			<h4>{avgRating} starts</h4>
-			<h4>₹{costForTwo / 100} FOR TWO</h4>
-			<h4>{deliveryTime} minutes</h4>
-		</div>
-	)
-}
-
-const Body = () => {
-	
-	return (
-		<div className="body">
-			<div className="search">Search</div>
-			<div className="res-container">
-				{resList.map((restaurant, idx) => 
-					  <RestaurantCard key= {restaurant.data.id} resData={restaurant} />
-				)}
-			</div>
-		</div>
-	)
-}
-
-const AppLayout = () => {
-	return (
-		<div className="app">
-			<Header />
-			<Body />
-		</div>
-	)
-}
-
-let root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />)

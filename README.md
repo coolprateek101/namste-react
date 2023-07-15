@@ -14,3 +14,26 @@ Compress
 Consistent Hashing
 Code splitting
 Differential Bundling - support older browser
+
+
+#Food Pal
+
+
+/**
+ * 
+ * Header
+ *  -Logo
+ * 	-Nav Items
+ * 
+ * Body
+ * 	-Search
+ * 	-RestaurantContainer
+ * 		-image
+ * 		-name of restaurant, Star rating, cuisine, delivery time
+ * 
+ * Footer
+ * 	-copyright
+ * 	-links
+ * 	-contacts
+ * 
+ */

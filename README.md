@@ -37,3 +37,8 @@ Differential Bundling - support older browser
  * 	-contacts
  * 
  */
+
+#React Hooks
+(Normal Java script function)
+-useState() - super powerful state variable in react
+-useEffect()

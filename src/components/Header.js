@@ -14,6 +14,7 @@ const Header = () => {
 					<li>About us</li>
 					<li>Contact us</li>
 					<li>cart</li>
+					<button className="logIn">Login</button>
 				</ul>
 			</div>
 		</div>

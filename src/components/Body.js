@@ -19,9 +19,7 @@ const Body = () => {
 		setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards)
 	}
 
-	if (!listOfRestaurant.length) return <Shimmer/>
-
-	return (
+	return (!listOfRestaurant.length) ? <Shimmer /> : (
 		<div className="body">
 			<div className="filter">
 				{/* <input className="searchInput" value={name} onChange={(e) => {

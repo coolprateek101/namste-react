@@ -4,10 +4,9 @@ import Shimmer from "./shimmer";
 
 const Body = () => {
 
-	console.log("Body rendered");
-	let [listOfRestaurant, setListOfRestaurant] = useState([]);
-	let [filteredRestaurant, setFilteredRestaurant] = useState([]);
-	let [searchText, setSearchText] = useState("");
+	let [listOfRestaurant, setListOfRestaurant] = useState([]),
+		[filteredRestaurant, setFilteredRestaurant] = useState([]),
+		[searchText, setSearchText] = useState("");
 
 	useEffect(() => {
 		fetchData()

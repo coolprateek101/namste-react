@@ -33,8 +33,10 @@ const Body = () => {
 					}}>Search</button>
 				</div>
 				<button className="filer-btn" onClick={()=> {
+					console.log("called");
 					let filteredRestaurant = listOfRestaurant.filter(res => res.data.avgRating > 4);
-					setListOfRestaurant(filteredRestaurant)
+					console.log(filteredRestaurant);
+					setFilteredRestaurant(filteredRestaurant)
 				}}>Top Rated Restaurant</button>
 				</div>
 			<div className="res-container">

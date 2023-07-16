@@ -1,12 +1,13 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 
 const Body = () => {
 
+	console.log("Body rendered");
 	let [listOfRestaurant, setListOfRestaurant] = useState([]);
-	let [name, setName] = useState("");
+	let [filteredRestaurant, setFilteredRestaurant] = useState([]);
+	let [searchText, setSearchText] = useState("");
 
 	useEffect(() => {
 		fetchData()
@@ -17,28 +18,28 @@ const Body = () => {
 	
 		let json = await data.json()
 		setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards)
+		setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards)
 	}
 
 	return (!listOfRestaurant.length) ? <Shimmer /> : (
 		<div className="body">
 			<div className="filter">
-				{/* <input className="searchInput" value={name} onChange={(e) => {
-					console.log(e.target.value);
-					setName(e.target.value)
-					let filteredRestaurant = listOfRestaurant.filter(res => res.data.name.includes(name))
-					setListOfRestaurant(filteredRestaurant)
-					console.log(name);
-					if (name === "") setListOfRestaurant(resList)
-				}}/> */}
-
+				<div className="search">
+					<input type="text" className="search-box" value={searchText} onChange={(e) => {
+						setSearchText(e.target.value)
+					}}/>
+					<button onClick={() => {
+						let filteredRestaurant = listOfRestaurant.filter(res => res.data.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()));
+						setFilteredRestaurant(filteredRestaurant)
+					}}>Search</button>
+				</div>
 				<button className="filer-btn" onClick={()=> {
 					let filteredRestaurant = listOfRestaurant.filter(res => res.data.avgRating > 4);
 					setListOfRestaurant(filteredRestaurant)
-				}}>
-						Top Rated Restaurant</button>
+				}}>Top Rated Restaurant</button>
 				</div>
 			<div className="res-container">
-				{listOfRestaurant.map((restaurant, idx) =>
+				{filteredRestaurant.map((restaurant) =>
 					<RestaurantCard key={restaurant.data.id} resData={restaurant} />
 				)}
 			</div>

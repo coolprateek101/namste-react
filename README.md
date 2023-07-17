@@ -42,3 +42,7 @@ Differential Bundling - support older browser
 (Normal Java script function)
 -useState() - super powerful state variable in react
 -useEffect()
+
+# 2 Types are routing in web app
+- client side routing
+-server side routing

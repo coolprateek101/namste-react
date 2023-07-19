@@ -1,7 +1,7 @@
 import { CDN_URL } from "../utils/constants";
 const RestaurantCard = (props) => {
 	const { resData } = props,
-		{ id, name, cloudinaryImageId, cuisines, avgRating, costForTwo, deliveryTime } = resData.data;
+		{ id, name, cloudinaryImageId, cuisines, avgRating, costForTwo, deliveryTime } = resData.info;
 
 	return (
 		<div className="res-card">

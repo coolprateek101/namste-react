@@ -17,7 +17,6 @@ const Body = () => {
 	
 		let data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.4003474&lng=80.37352039999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
 		let json = await data.json()
-		console.log();
 		console.log(json?.data?.cards[2]?.card?.card?.gridElements.infoWithStyle.restaurants);
 
 		setListOfRestaurant(json?.data?.cards[2]?.card?.card?.gridElements.infoWithStyle.restaurants)
@@ -48,7 +47,7 @@ const Body = () => {
 			<div className="res-container">
 				{filteredRestaurant.map((restaurant) =>{
 					console.log(restaurant.info.id, 'id');
-					return <Link key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`}><RestaurantCard key={restaurant.info.id} resData={restaurant} /></Link>
+					return <Link key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`} style={{ textDecoration: 'none' }}><RestaurantCard key={restaurant.info.id} resData={restaurant} /></Link>
 
 				}
 					

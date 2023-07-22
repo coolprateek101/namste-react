@@ -33,13 +33,13 @@ const Body = () => {
 						setSearchText(e.target.value)
 					}}/>
 					<button onClick={() => {
-						let filteredRestaurant = listOfRestaurant.filter(res => res.data.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()));
+						let filteredRestaurant = listOfRestaurant.filter(res => res.info.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()));
 						setFilteredRestaurant(filteredRestaurant)
 					}}>Search</button>
 				</div>
 				<button className="filer-btn" onClick={()=> {
 					console.log("called");
-					let filteredRestaurant = listOfRestaurant.filter(res => res.data.avgRating > 4);
+					let filteredRestaurant = listOfRestaurant.filter(res => res.info.avgRating > 4);
 					console.log(filteredRestaurant);
 					setFilteredRestaurant(filteredRestaurant)
 				}}>Top Rated Restaurant</button>

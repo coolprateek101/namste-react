@@ -5,32 +5,48 @@ class UserClass extends React.Component {
 	constructor(props) {
 		super(props)
 
-		console.log("Child Constructor");
 		this.state = {
-			count: 0
+			userInfo: {
+				name: "Dummy Name",
+				location: "default",
+				avatar_url: "http://dummy-photo.com"
+			}
 		}
+		console.log("child constructor");
 	}
 
-	componentDidMount() {
-		console.log("Child component mount");
+	async componentDidMount() {
+		console.log("child component mount");
+		// let data = await fetch("https://api.github.com/users/coolprateek101")
+		// let json = await data.json()
+		// this.setState({
+		// 	userInfo: json
+		// })
+
+		this.timer = setInterval(() => {
+			console.log("set interval");
+		}, 1000)
+		
+	}
+
+	componentDidUpdate() {
+		console.log("component did update");
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timer)
 	}
 	render() {
-		const {count, count2} = this.state;
+		const { name, location, avatar_url } = this.state.userInfo;
 		console.log("Child render");
 		return (
 			<div className="user-card">
-				<h1>count: {count}</h1>
-				<button onClick={() => {
-					console.log("called");
-					this.setState({
-						count: this.state.count + 1
-					})
-				}}>Count Increase</button>
-				<h2>Name: {this.props.name}</h2>
-				<h2>Location: {this.props.location}</h2>
+				<img src={avatar_url}></img>
+				<h2>Name: {name}</h2>
+				<h2>Location: {location}</h2>
 			</div>
 		)
 	}
-}
+} 
 
-export default UserClass;
+export default UserClass; 

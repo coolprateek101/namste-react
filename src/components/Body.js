@@ -17,10 +17,10 @@ const Body = () => {
 	
 		let data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.4003474&lng=80.37352039999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
 		let json = await data.json()
-		console.log(json?.data?.cards[2]?.card?.card?.gridElements.infoWithStyle.restaurants);
+		console.log(json?.data?.cards[4]?.card?.card?.gridElements.infoWithStyle.restaurants);
 
-		setListOfRestaurant(json?.data?.cards[2]?.card?.card?.gridElements.infoWithStyle.restaurants)
-		setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements.infoWithStyle.restaurants)
+		setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements.infoWithStyle.restaurants)
+		setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements.infoWithStyle.restaurants)
 		// setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards)
 		// setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards)
 	}
